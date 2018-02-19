@@ -10,6 +10,9 @@
  setwd("~/rfiles/GETTING AND CLEANING DATA/DATACLEANING WEEK 1/DATA")
 library("data.table")
 library("reshape2")
+setwd("~/rfiles/GETTING AND CLEANING DATA/DATACLEANING WEEK 1/DATA")
+library("data.table")
+library("reshape2")
 
 # Load: activity labels
 actilabel <- read.table("./UCI HAR Dataset/activity_labels.txt")[,2]
@@ -50,7 +53,7 @@ names(X_train) = features
 X_train = X_train[,getfeature]
 
 # Load activity data
-y_train[,2] = activity_labels[y_train[,1]]
+y_train[,2] = actilabel[y_train[,1]]
 names(y_train) = c("Activity_ID", "Activity_Label")
 names(subject_train) = "subject"
 
